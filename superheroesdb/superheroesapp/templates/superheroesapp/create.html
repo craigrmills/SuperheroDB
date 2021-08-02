@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Superhero</title>
+</head>
+
+<body>
+    <form action="{% url 'superheroesapp:create_new_superhero' %}" method="POST">
+        {% csrf_token %}
+        Name:<input type="text" name="name" id="name"><br>
+        Alter Ego:<input type="text" name="alter_ego" id="alter_ego"><br>
+        Primary Superpower:<input type="text" name="prim_superpower" id="prim_superpower"><br>
+        Secondary Superpower:<input type="text" name="secon_superpower" id="secon_superpower"><br>
+        Catchphrase:<input type="text" name="catchphrase" id="catchphrase"><br>
+        <input type="submit" value="Add new!">
+    </form>
+</body>
+
+</html>
