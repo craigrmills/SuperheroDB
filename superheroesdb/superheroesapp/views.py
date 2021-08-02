@@ -1,5 +1,5 @@
 from typing import ContextManager
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from .models import Superhero
@@ -34,3 +34,9 @@ def create(request):
         return HttpResponseRedirect(reverse('superheroesapp:index'))
     else:
         return render(request, 'superheroesapp/create.html')
+
+
+def remove(request, superhero_id):
+    superhero = Superhero.objects.get(pk=superhero_id)
+    superhero.delete()
+    return redirect(reverse('superheroesapp:index'))

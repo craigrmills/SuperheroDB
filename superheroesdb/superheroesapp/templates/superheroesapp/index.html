@@ -14,10 +14,13 @@
         {% for superhero in all_superheroes %}
         <li>
             <h2>{{superhero.name}}</h2>
-            <a href="{% url 'superheroesapp:detail' superhero.id %}">See more info</a>
+            <button><a href="{% url 'superheroesapp:detail' superhero.id %}">See more info</a></button>
+            <button><a href="{% url 'superheroesapp:remove' superhero.id %}">Delete Superhero</a></button>
+            <!-- <a href="{% url 'superheroesapp:detail' superhero.id %}">See more info</a> -->
         </li>
         {% endfor %}
     </ul>
+    <button><a href="/superheroesapp/new/">Create a Superhero</a></button>
 </body>
 
 </html>
